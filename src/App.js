@@ -1,16 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Header } from './components/Header/Header'
 import { Main } from './ui/Main/Main'
 import { Container } from './ui/Container/Container'
 import { Cards } from './components/Cards/Cards'
 import { Card } from './ui/Card/Card'
 import { Preloader } from './components/Preloader/Preloader'
+import Pagination from './components/Pagination/Pagination'
+
+let PageSize = 18
 
 function App() {
   const [emoji, setEmoji] = useState([])
   const [value, setValue] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     async function fetchEmoji() {
@@ -26,14 +30,22 @@ function App() {
     }
     fetchEmoji()
   }, [])
-
+  console.log(emoji)
   const emojiHandler = e => setValue(e.target.value.toLowerCase().trim())
 
-  const filtered = emoji.filter(
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize
+    const lastPageIndex = firstPageIndex + PageSize
+    return emoji.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage, emoji])
+  console.log(currentTableData)
+
+  const filtered = currentTableData.filter(
     item =>
       item.keywords.toLowerCase().includes(value) ||
       item.title.toLowerCase().includes(value)
   )
+  console.log(filtered)
 
   return (
     <>
@@ -54,6 +66,13 @@ function App() {
               />
             ))}
           </Cards>
+          <Pagination
+            className="pagination-bar"
+            currentPage={currentPage}
+            totalCount={emoji.length}
+            pageSize={PageSize}
+            onPageChange={page => setCurrentPage(page)}
+          />
           {isError && (
             <p
               style={{
