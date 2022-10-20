@@ -44,7 +44,6 @@ function App() {
       item.keywords.toLowerCase().includes(value) ||
       item.title.toLowerCase().includes(value)
   )
-  console.log(filtered)
 
   return (
     <>
