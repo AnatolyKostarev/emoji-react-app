@@ -30,7 +30,7 @@ function App() {
     }
     fetchEmoji()
   }, [])
-  console.log(emoji)
+
   const emojiHandler = e => setValue(e.target.value.toLowerCase().trim())
 
   const currentTableData = useMemo(() => {
@@ -38,7 +38,6 @@ function App() {
     const lastPageIndex = firstPageIndex + PageSize
     return emoji.slice(firstPageIndex, lastPageIndex)
   }, [currentPage, emoji])
-  console.log(currentTableData)
 
   const filtered = currentTableData.filter(
     item =>
