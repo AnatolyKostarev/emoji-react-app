@@ -42,9 +42,9 @@ function App() {
         <Container>
           {isLoading && <Preloader />}
           <Cards>
-            {filtered.map((elem, index) => (
+            {filtered.map(elem => (
               <Card
-                key={index}
+                key={elem.title}
                 symbol={elem.symbol}
                 title={elem.title}
                 keywords={elem.keywords
