@@ -1,0 +1,55 @@
+.header {
+  background: linear-gradient(92.33deg, #196b78 0.12%, #138496 100%);
+  box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+.header__emoji {
+  position: relative;
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.header__title {
+  margin-bottom: 12px;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 87px;
+  text-align: center;
+  color: rgba(204, 248, 255, 1);
+}
+
+.header__text {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  color: rgba(204, 248, 255, 1);
+}
+
+.header__search {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 75%);
+  display: block;
+  padding-left: 32px;
+  width: 820px;
+  height: 75px;
+  border: 1px solid #ced4da;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #000;
+}
+
+input[placeholder='Placeholder'] {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  color: #000;
+}
+
+@media (max-width: 1200px) {
+  .header__search {
+    max-width: 90%;
+  }
+}

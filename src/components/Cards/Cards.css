@@ -1,0 +1,7 @@
+.cards__emoji {
+  padding: 80px 226px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
