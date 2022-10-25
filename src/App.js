@@ -7,7 +7,7 @@ import { Card } from './ui/Card/Card'
 import { Preloader } from './components/Preloader/Preloader'
 import Pagination from './components/Pagination/Pagination'
 
-let PageSize = 18
+let PageSize = 9
 
 function App() {
   const [emoji, setEmoji] = useState([])
